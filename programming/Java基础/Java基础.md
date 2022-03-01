@@ -2,11 +2,11 @@
 sidebar_position: 1
 ---
 
-# Java语法基础
+# Java 语法基础
 
 
 
-## Java标识符
+## Java 标识符
 
 
 
@@ -111,5 +111,69 @@ public class HelloWorld{
 
 ## 常量
 
+常量事实上是内容不可修改的变量，常量与变量类似，也需要初始化，即在声明常量的同时需要赋予一个初始值。常量一旦初始化便不可再修改。
 
+常量的声明格式为：
 
+```java
+final 数据类型 常量名 = 初始值;
+```
+
+final 关键字可以修饰很多元素，修饰变量就成了常量。
+
+示例代码如下
+
+```java
+public class HelloWorld{
+    
+    public static final double PI = 3.14; //声明静态常量
+    
+    final int x = 10; //声明成员常量
+    
+    public static void main(String[] args){
+        //声明局部常量
+        final double y = 3.2;
+    }
+    
+}
+```
+
+:::tip
+
+常量有三种类型：静态常量、成员常量、局部常量。
+
+代码一开始声明静态常量，在 final 关键字前用 public static 修饰。public static 修饰的常量作用域是全局的，不需要创建对象就可以访问它，在 class 外的访问形式：HelloWorld.PI，这种常量在编程中使用广泛。
+
+:::
+
+## Java 源代码文件
+
+Java源代码文件中可以定义一个或者多个 Java 类型，类型包括类（Class）、接口（Interface）、枚举（Enum）和注释（Annotation），它们是 Java 源代码的最小组织单位。
+
+如下代码定义了三个类 HelloWorld、A和B。
+
+```java title="HelloWorld.java"
+public class HelloWorld{
+    public static void main(String[] args){
+        System.out.println("Hello,world!");
+    }
+}
+
+class A{
+    
+}
+
+class B{
+    
+}
+```
+
+:::tip 一个源文件包含多个类时，需注意如下问题：
+
+（1）只能由一个类声明为公有（public）的。上述示例中类 HelloWorld 是公有的。
+
+（2）文件命名必须与公有类名完全一致，包括字母大小写。上述示例中公有类 HelloWorld 与源代码文件名 HelloWorld.java 一致。 
+
+（3）`public static void main(String[] args)`方法只能定义在公有类中。上述示例只能在类 HelloWorld 中定义main方法。
+
+:::
