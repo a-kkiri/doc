@@ -56,6 +56,17 @@ const config = {
         sidebarPath: require.resolve('./sidebars.js'),
       }, 
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'programming',
+        path: 'programming',
+        routeBasePath: 'programming',
+        remarkPlugins: [math],
+        rehypePlugins: [katex],
+        sidebarPath: require.resolve('./sidebars.js'),
+      }, 
+    ],
   ],
 
   stylesheets: [
@@ -88,6 +99,11 @@ const config = {
             position: 'left',
             label: '数学建模',
           },
+          {
+            to: '/programming/home',
+            position: 'left',
+            label: '计算机科学',
+          },
         ],
       },
       footer: {
@@ -115,8 +131,9 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: require('prism-react-renderer/themes/palenight'),
+        darkTheme: require('prism-react-renderer/themes/oceanicNext'),
+        additionalLanguages: ['java'],
       },
     }),
 };
