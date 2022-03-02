@@ -1,5 +1,6 @@
 ---
-sidebar_position: 1
+sidebar_label: 'Java基础'
+sidebar_position: 2
 ---
 
 # Java 语法基础
@@ -177,3 +178,39 @@ class B{
 （3）`public static void main(String[] args)`方法只能定义在公有类中。上述示例只能在类 HelloWorld 中定义main方法。
 
 :::
+
+## 包
+
+Java 类型（类、接口、枚举、和注解）命名时，有时会出现名字发生冲突，例如，项目中自定义了一个日期类，为它取名为 Date，但是会发现 Java SE 核心库中还有两个 Date 类，它们分别位于 java.util 包和 java.sql 包中。
+
+在 Java 中为了防止 Java 类型命名冲突而引用了包（package）的概念，包本质上是命名空间（namespace）。在包中可以定义一组相关的类型，并为它们提供访问保护和命名空间管理。
+
+通过包，前面提到的 Date 类名称冲突问题很好解决，将不同的 Date 类放到不同的包中，自定义的 Date 可以放入自定义的包 com.irikka 中，这样就不会与 java.util 包和 java.sql 包中的 Date 发生冲突问题。
+
+### 定义包
+
+在 Java 中使用 package 语句定义包，package 语句应该放在文件的第一行，在每个源文件中只能有一个包定义语句，并且 package 语句适用于所有 Java 类型的文件。
+
+定义包的语法格式如下：
+
+```java
+package pkg1[.pkg2[.pkg3]];
+```
+
+pkg1~pkg3 都是组成包名的一部分，它们之间用（.）连接。它们的命名应该是合法的标识符并遵循 Java 包的命名规范，即全部都是小写字母。例如：com.irikka 是自定义的包名，包名是本站根域名的倒置。
+
+示例代码：
+
+```java title='src/com/irikka/Date.java'
+package com.irikka;
+
+public class Date {
+    @Override
+    public String toString(){
+        return "2022.3.2"
+    }
+}
+```
+
+在src目录下创建包 com.irikka ，并在包中创建 Date 类 
+
