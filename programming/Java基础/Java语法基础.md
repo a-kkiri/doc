@@ -270,7 +270,7 @@ Java SE 提供了一些常用包，其中包含 Java 开发中常用的基础类
 
 3. **java.net 包**
 
-   *java.net* 包中包含进行网络相关操作的类，如Url、Socket 和 ServerSocket 等。
+   *java.net* 包中包含进行网络相关操作的类，如 Url、Socket 和 ServerSocket 等。
 
 4. **java.util 包**
 
