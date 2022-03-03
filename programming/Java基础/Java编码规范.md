@@ -204,3 +204,189 @@ public class Date extends java.util.Date {
 
 ### 空行
 
+空行用以将逻辑相关的代码段分隔开，以提高可读性。
+
+空行的使用规范如下:
+
+（1）类声明和接口声明之间保留两个空行。
+
+（2）两个方法之间保留两个空行。
+
+（3）方法的第一条语句之前保留一个空行。
+
+（4）代码注释（除尾端注释外）之前保留一个空行。
+
+（5）一个方法内的两个逻辑段之间保留一个空行。
+
+### 空格
+
+下面是空格的使用规范
+
+（1）赋值符号 "=" 前后各有一个空格。
+
+```java
+int YEAR_LENGTH = 4;
+int day = super.getDate();
+```
+
+（2）所有的二元运算符都应该使用空格与操作数分开。
+
+```java
+a += c + d;
+prints("size is" + foo + "\n");
+```
+
+（3）一元操作符，即负号 "-"、自增 "++" 和自减 "--" 等，它们与操作数之间没有空格。
+
+```java
+int a = -b;
+a++;
+--b;
+```
+
+（4）小括号 "(" 之后，")" 之前不应该有空格
+
+```java
+a = (a + b)/(c * d);
+```
+
+（5）大左括号 "{" 之前有一个空格。
+
+```java
+while (a == b) {
+    n += 1;
+}
+```
+
+（6）方法参数列表小括号 "(" 之前没有空格，")" 之后有一个空格，参数列表中参数逗号 "," 之后也有一个空格。
+
+```java'
+String format(Object obj, StringBuffer toAppendTo, FieldPosition fieldPosition) {
+	...
+}
+```
+
+（7）关键字之后紧跟着小左括号 "("，关键字之后应该有一个空格。如下实例中 while 之后有一个空格。
+
+```java
+while (a == b){
+    ...
+}
+```
+
+### 缩进
+
+4个空格常被作为缩进排版的一个单位。
+
+缩进可以遵循以下规范：
+
+（1）在方法、Lambda、控制语句等包含大括号 "{}" 的代码块中，代码块的内容相对于首行缩进一个单位（4个空格）。
+
+（2）如果是if 语句中条件表达式的断行，那么新的一行应该相对于上一行缩进两个单位（8个空格），再往后的断行要与第一次的对齐。
+
+实例代码如下：
+
+```java title="《Java 从小白到大牛（第二版）》示例代码5.3.3"
+public class Date extends java.util.Date {
+
+    // 默认的容量，是一个常量
+    private static final int DEFAULT_CAPACITY = 10;
+
+    /**
+     * 容量
+     */
+    public int size;
+    
+    int longName1 = 0, longName2 = 0, longName3 = 0, longName4 = 0, longName5 = 0;
+    
+    boolean boolName1 = true;
+
+    public String getString() {
+
+        int year = super.getYear() + 1900; // 计算年份
+        int month = super.getMonth() + 1; /* 计算月份 */
+        int day = super.getDate();
+        // ...
+
+        if ((longName1 == longName2)
+                || (longName3 == longName4) && (longName3 > longName4) 
+                && (longName2 > longName5)) {
+
+        }
+                 
+        return null;
+    }
+}
+```
+
+### 断行
+
+一行代码的长度尽量不要超过80个字符，如果超过则需断行，可以依据下面的一般规范断开。
+
+（1）在一个逗号后面断开。
+
+（2）在一个操作符前面断开，要选择较高级别的运算符（而非较低级别的运算符）断开。
+
+（3）新的一行应该相当于上一行缩进两个单位（8个空格）。
+
+示例如下：
+
+```java
+longName1 = longName2 * (longName3 + longName4 - longName5)
+    + 4 * longName6;
+
+private static DateFormat get(int timeStyle, int dateStyle,
+                             int flags, Locale loc) {
+    ...
+}
+
+if ((longName1 == longName2)
+    || (longName3 == longName4) && (longName3 > longName4) 
+    && (longName2 > longName5)) {
+    
+}
+
+boolName1 = (longName3 == longName4)
+    ? (longName3 > longName4)
+    : (longName2 > longName5);
+```
+
+### 其他规范
+
+除上述规范外，下面补充一些重要的规范。
+
+（1）在声明变量或常量时推荐一行一个地声明。
+
+```java\
+// 推荐使用
+int longName1 = 0;
+int longName2 = 0;
+// 不推荐
+int longName1 = 0, longName2 = 0;
+```
+
+（2）左大括号 "{" 位于声明语句同行的末尾。右大括号 "}" 另起一行，与相应的声明语句对齐，除非是一个空语句，右大括号 "}" 应紧跟在左大括号 "{" 之后。
+
+```java title="《Java 从小白到大牛（第二版）》示例代码5.4"
+public class Date extends java.util.Date {
+
+    int longName1 = 0;
+    int longName2 = 0;
+
+    boolean boolName1 = true;
+
+    public String getString() {
+
+        int year = super.getYear() + 1900; // 计算年份
+        int month = super.getMonth() + 1; /* 计算月份 */
+        int day = super.getDate();
+        
+        return null;
+    }
+
+    public void setString() {}
+
+}
+```
+
+（3）每行至多包含一条语句。
