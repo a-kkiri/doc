@@ -283,3 +283,5 @@ Java SE 提供了一些常用包，其中包含 Java 开发中常用的基础类
 6. **java.awt 和 javax.swing 包**
 
    *java.awt* 和 *javax.swing* 包提供了 Java 图形用户界面开发所需要的各种类和接口。java.awt 提供了一些基础类和接口，javax.swing 提供了一些高级组件。
+
+> 创建日期：2022年3月1日
