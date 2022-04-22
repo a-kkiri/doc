@@ -136,3 +136,31 @@ person1 和 person2 使用 == 比较结果是 false，因为它们是不同的�
 
 ## 包装类
 
+在 Java 8 中有 8 种数据类型不属于类，不具备 “对象” 的特征，没有成员变量和方法，不方便进行面向对象的操作。为此，Java 提供包装类（Wrapper Class）将基本数据类型包装成类，每个 Java 基本数据类型在 java.lang 包中都有一个对应的包装类，每个包装类对象封装一个基本数据类型数值。除 int 和 char 类型外，其他类型的对应规则就是第一个字母大写。
+
+:::caution
+
+包装类都是 final 的，不能被继承。包装类都是不可变类，类似于 String 类，一旦创建了对象，其内容就不可修改。
+
+::: 
+
+包装类还可分为三种不同的类别：数值包装类（Byte、Short、Integer、Long、Float 和 Double）、Character 类和 Boolean 类，下面分别详细介绍。
+
+### 数值包装类
+
+这些数值包装类（Byte、Short、Integer、Long、Float 和 Double）都有一些共同的特点。
+
+1. 共同的父类
+
+   这 6 个数值包装类有一个共同的父类——Number，Number 是一个抽象类，除了这 6 个子类，它的子类还有 AtomicInteger、AtomicLong、BigDecimal 和 BigInteger，其中 BigDecimal，其中 BigDecimal 和 BigInteger 后面会详细介绍。Number 是抽象类，要求他的子类必须实现如下 6 种方法。
+
+   - `byte byteValue()`：将当前包装的对象转化为 byte 类型的数值
+   - `double doubleValue()`：将当前包装的对象转化为 double 类型的数值
+   - `float floatValue()`：将当前包装的对象转化为 float 类型的数值
+   - `int intValue()`：将当前包装的对象转化为 int 类型的数值
+   - `long longValue()`：将当前包装的对象转化为 long 类型的数值
+   - `short shortValue()`：将当前包装的对象转化为 short 类型的数值
+
+   通过这 6 种方法，数值包装类可以互相转换这 6 种数值，但是需要注意的是大范围数值转换为小范围的数值，如果数值本身很大，则可能会导致精度的丢失。
+
+2. 返回数值包装类对象
